@@ -10,7 +10,7 @@ export default function DetailTable() {
     <div className="section">
       <h3>DETAIL</h3>
 
-      <button onClick={()=>dispatch(addRow())}>+ Add Row</button>
+      <button className="primary" onClick={()=>dispatch(addRow())}>+ Add Row</button>
 
       <table>
         <thead>
@@ -39,7 +39,7 @@ export default function DetailTable() {
                 <input type="number" onChange={(e)=>dispatch(updateRow({index:i,field:"rate",value:e.target.value}))}/>
               </td>
               <td>
-                <button onClick={()=>dispatch(removeRow(i))}>X</button>
+                <button className="danger" onClick={()=>dispatch(removeRow(i))}>X</button>
               </td>
             </tr>
           ))}
