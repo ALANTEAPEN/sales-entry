@@ -1,7 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
-import salesReducer from "./salesSlice";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 
-export default configureStore({
-reducer: { sales: salesReducer }
+const salesSlice = createSlice({
+name: "sales",
+initialState: { header:{} },
+reducers:{
+setHeader:(state,action)=>{ state.header = action.payload }
+}
+});
+
+
+export const { setHeader } = salesSlice.actions;
+
+
+export const store = configureStore({
+reducer:{ sales:salesSlice.reducer }
 });
